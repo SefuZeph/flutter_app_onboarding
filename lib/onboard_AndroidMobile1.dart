@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'onboard_AndroidMobile2.dart';
-
-class onboard_AndroidMobile1 extends StatelessWidget {
+class onboard_AndroidMobile1 extends StatefulWidget {
   final String title;
 
   onboard_AndroidMobile1({Key key, this.title}) : super(key: key);
+
+  _MyFirstPage createState() => _MyFirstPage();
+}
+
+class _MyFirstPage extends State<onboard_AndroidMobile1> {
+  final pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -14,31 +18,61 @@ class onboard_AndroidMobile1 extends StatelessWidget {
         title: Text("Screen 1"),
       ),
       backgroundColor: const Color(0xffffffff),
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(left: 450.0),
-          ),
-          _buttonOne(context),
-        ],
+      body: Container(
+        child: PageView(
+//          physics: new NeverScrollableScrollPhysics(),
+          controller: pageController,
+          scrollDirection: Axis.vertical,
+          children: <Widget>[_pageOne(), _pageTwo(), _pageThree()],
+        ),
       ),
     );
   }
 
-  Widget _buttonOne(BuildContext context) {
-    return RaisedButton(
-      child: Text("Button 1"),
-      onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => onboard_AndroidMobile2()));
-      },
+  Widget _pageOne() {
+    return Center(
+      child: Container(
+        color: Colors.red,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Center(
+          child: Text("Rotation"),
+        ),
+      ),
     );
   }
 
-  Widget _translateButton() {
-    return RaisedButton(
-      child: Text("Button Press"),
-      onPressed: () {},
+  Widget _pageTwo() {
+    return Center(
+      child: Container(
+        color: Colors.blue,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Center(
+            child: FlatButton(
+          child: Text("Scale"),
+          onPressed: () {
+            setState(() {
+              pageController.animateToPage(2,
+                  duration: Duration(microseconds: 400000),
+                  curve: Curves.easeInQuad);
+            });
+          },
+        )),
+      ),
+    );
+  }
+
+  Widget _pageThree() {
+    return Center(
+      child: Container(
+        color: Colors.green,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Center(
+          child: Text("Translate"),
+        ),
+      ),
     );
   }
 }
