@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_onboarding/custom_widget/fancy_fab.dart';
 
 class CustomerOnboarding extends StatefulWidget {
   final String title;
@@ -45,68 +47,75 @@ class _MyFirstPage extends State<CustomerOnboarding> {
   }
 
   Widget _pageOne() {
-    return Center(
-      child: Container(
-        color: Colors.red,
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Center(
-          child: FlatButton(
-            child: Text("Rotation"),
-            onPressed: () {
-              setState(() {
-                _pageController.animateToPage(1,
-                    duration: _kDuration, curve: _kCurve);
-              });
-            },
+    return Column(
+      children: <Widget>[
+        Flexible(
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: 30.0, bottom: 40.0),
+              child: FancyFab(
+                onPressed: () {
+                  setState(() {
+                    _pageController.animateToPage(1,
+                        duration: _kDuration, curve: _kCurve);
+                  });
+                },
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 
   Widget _pageTwo() {
-    return Center(
-      child: Container(
-        color: Colors.red,
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Center(
-            child: FlatButton(
-          child: Text("Scale"),
-          onPressed: () {
-            setState(() {
-              if (_pageController.hasClients) {
-                _pageController.animateToPage(2,
-                    duration: _kDuration, curve: _kCurve);
-              }
-            });
-          },
-        )),
-      ),
+    return Stack(
+      children: <Widget>[
+        Container(
+          color: Colors.white,
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: 30.0, bottom: 40.0),
+              child: FancyFab(
+                onPressed: () {
+                  setState(() {
+                    _pageController.animateToPage(2,
+                        duration: _kDuration, curve: _kCurve);
+                  });
+                },
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 
   Widget _pageThree() {
     return Center(
       child: Container(
-        color: Colors.red,
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Center(
-          child: FlatButton(
-            child: Text("Translate"),
-            onPressed: () {
-              setState(() {
-                if (_pageController.hasClients) {
+        color: Colors.white,
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding: EdgeInsets.only(left: 30.0, bottom: 40.0),
+            child: FancyFab(
+              onPressed: () {
+                setState(() {
                   _pageController.animateToPage(1,
                       duration: _kDuration, curve: _kCurve);
-                }
-              });
-            },
+                });
+              },
+            ),
           ),
         ),
       ),
     );
   }
+
+// TODO 2: Add Header for screen on (Without Image)
+// TODO 3: Add text heading
+// TODO 4: Add description
 }
