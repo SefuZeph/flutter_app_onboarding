@@ -52,10 +52,13 @@ class _MyFirstPage extends State<CustomerOnboarding> {
           child: Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: EdgeInsets.only(left: 16.0, bottom: 20.0,right: 16.0),
+              padding: EdgeInsets.only(left: 16.0, bottom: 20.0, right: 16.0),
               child: Text(
                 "DIVE TO MAKE MEMORIES",
-                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'VarelaRound'),
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'VarelaRound'),
               ),
             ),
           ),
@@ -65,14 +68,18 @@ class _MyFirstPage extends State<CustomerOnboarding> {
           child: Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: EdgeInsets.only(left: 16.0, bottom: 50.0,right: 16.0),
+              padding: EdgeInsets.only(left: 16.0, bottom: 50.0, right: 16.0),
               child: Text(
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                 " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
                 " when an unknown printer took a galley of type and scrambled it to make a type "
                 "specimen book. It has survived not only five centuries, but also the leap into electronic "
                 "typesetting, remaining essentially unchanged. ",
-                style: TextStyle(fontSize: 14,letterSpacing: 1,wordSpacing: 5,fontFamily: 'VarelaRound'),
+                style: TextStyle(
+                    fontSize: 14,
+                    letterSpacing: 1,
+                    wordSpacing: 5,
+                    fontFamily: 'VarelaRound'),
               ),
             ),
           ),
@@ -148,7 +155,6 @@ class _MyFirstPage extends State<CustomerOnboarding> {
     );
   }
 
-// TODO 2: Add Header for screen on (Without Image)
-// TODO 3: Add text heading
-// TODO 4: Add description
+// TODO 1: Add Header for screen on (Without Image)
+// TODO 2: Hard coded resources in flutter (Color and String)
 }

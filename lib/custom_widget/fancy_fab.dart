@@ -14,7 +14,8 @@ class _FancyFabState extends State<FancyFab> {
   Widget build(BuildContext context) {
     return Container(
       child: FloatingActionButton(
-        child: Icon(Icons.access_alarm),
+        backgroundColor: const Color(0xfff79631),
+        child: Icon(Icons.keyboard_arrow_down),
         onPressed: () {
           setState(() {
             widget.onPressed();
