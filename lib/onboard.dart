@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_onboarding/custom_widget/fancy_fab.dart';
+import 'package:flutter_app_onboarding/custom_widget/header_image_one.dart';
+import 'package:flutter_app_onboarding/custom_widget/header_image_three.dart';
+import 'package:flutter_app_onboarding/custom_widget/header_image_two.dart';
 
 class CustomerOnboarding extends StatefulWidget {
   final String title;
@@ -31,6 +34,12 @@ class _MyFirstPage extends State<CustomerOnboarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(0),
+        child: AppBar(
+          backgroundColor: Color(0xfff79631),
+        ),
+      ),
       backgroundColor: const Color(0xffffffff),
       body: Container(
         child: PageView(
@@ -47,6 +56,16 @@ class _MyFirstPage extends State<CustomerOnboarding> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
+        Container(
+          color: Colors.white,
+          child: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: 16.0, bottom: 20.0, right: 16.0),
+              child: HeaderImageOne(),
+            ),
+          ),
+        ),
         Container(
           color: Colors.white,
           child: Align(
@@ -112,9 +131,56 @@ class _MyFirstPage extends State<CustomerOnboarding> {
         Container(
           color: Colors.white,
           child: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: 16.0, bottom: 20.0, right: 16.0),
+              child: HeaderImageTwo(),
+            ),
+          ),
+        ),
+        Container(
+          color: Colors.white,
+          child: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: 16.0, bottom: 20.0, right: 16.0),
+              child: Text(
+                "DIVE TO MAKE MEMORIES",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'VarelaRound'),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          color: Colors.white,
+          child: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: 16.0, bottom: 50.0, right: 16.0),
+              child: Text(
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                " when an unknown printer took a galley of type and scrambled it to make a type "
+                "specimen book. It has survived not only five centuries, but also the leap into electronic "
+                "typesetting, remaining essentially unchanged. ",
+                style: TextStyle(
+                    fontSize: 14,
+                    letterSpacing: 1,
+                    wordSpacing: 5,
+                    fontFamily: 'VarelaRound'),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          color: Colors.white,
+          child: Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: 30.0, bottom: 40.0),
+              padding: EdgeInsets.only(left: 30.0, bottom: 50.0),
               child: FancyFab(
                 onPressed: () {
                   setState(() {
@@ -137,16 +203,59 @@ class _MyFirstPage extends State<CustomerOnboarding> {
         Container(
           color: Colors.white,
           child: Align(
-            alignment: Alignment.bottomLeft,
+            alignment: Alignment.center,
             child: Padding(
-              padding: EdgeInsets.only(left: 30.0, bottom: 40.0),
-              child: FancyFab(
-                onPressed: () {
-                  setState(() {
-                    _pageController.animateToPage(1,
-                        duration: _kDuration, curve: _kCurve);
-                  });
-                },
+              padding: EdgeInsets.only(left: 16.0, bottom: 20.0, right: 16.0),
+              child: HeaderImageThree(),
+            ),
+          ),
+        ),
+        Container(
+          color: Colors.white,
+          child: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: 16.0, bottom: 20.0, right: 16.0),
+              child: Text(
+                "DIVE TO MAKE MEMORIES",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'VarelaRound'),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          color: Colors.white,
+          child: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: 16.0, bottom: 50.0, right: 16.0),
+              child: Text(
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                " when an unknown printer took a galley of type and scrambled it to make a type "
+                "specimen book. It has survived not only five centuries, but also the leap into electronic "
+                "typesetting, remaining essentially unchanged. ",
+                style: TextStyle(
+                    fontSize: 14,
+                    letterSpacing: 1,
+                    wordSpacing: 5,
+                    fontFamily: 'VarelaRound'),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          color: Colors.white,
+          child: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(left: 30.0, bottom: 50.0),
+              child: OutlineButton(
+                child: Text("GET STARTED",),
+                onPressed: () {},
               ),
             ),
           ),
@@ -155,6 +264,5 @@ class _MyFirstPage extends State<CustomerOnboarding> {
     );
   }
 
-// TODO 1: Add Header for screen on (Without Image)
 // TODO 2: Hard coded resources in flutter (Color and String)
 }
